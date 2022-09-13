@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
-import { store } from './store';
-import { type } from './actions';
-import { useSelector } from 'react-redux';
+
+import { useAppSelector, useAppDispatch } from './hooks';
+
+import { decrement, increment } from './reducer';
 
 function App() {
-  // const [count, setCount] = useState(0);
-  const count = useSelector((state) => state.counter);
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
 
   const handleIncrement = (e) => {
-    store.dispatch({
-      type: type.INCREMENT,
+    dispatch({
+      type: increment,
     });
     e.preventDefault();
   };
 
   const handleDecrement = (e) => {
-    store.dispatch({
-      type: type.DECREMENT,
+    dispatch({
+      type: decrement,
     });
     e.preventDefault();
   };
