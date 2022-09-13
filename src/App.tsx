@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
   // const [count, setCount] = useState(0);
-  const count = useSelector((state) => state.counter);
+  const count = useSelector((state) => state.counter.value);
 
   const handleIncrement = (e) => {
     store.dispatch({
